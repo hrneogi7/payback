@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="3" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-04-05T11:17:37 IST" name="CucumberDemo2 Suit 1" finished-at="2022-04-05T11:18:16 IST" duration-ms="38404">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testOptions.TestRunner@63376bed]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2022-04-05T11:17:37 IST" name="CucumberDemo2 Test 1" finished-at="2022-04-05T11:18:16 IST" duration-ms="38404">
+      <class name="testOptions.TestRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:testOptions.TestRunner@63376bed]" started-at="2022-04-05T11:17:37 IST" name="setUpClass" finished-at="2022-04-05T11:17:38 IST" duration-ms="359" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@70ede57d]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testOptions.TestRunner@63376bed]" started-at="2022-04-05T11:17:38 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-04-05T11:17:48 IST" duration-ms="10627" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Translate a piece of text from English to a particular language."]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Google Stuff]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="closeAllBrowserWindows()[pri:0, instance:testOptions.TestRunner@63376bed]" started-at="2022-04-05T11:17:48 IST" name="closeAllBrowserWindows" finished-at="2022-04-05T11:17:49 IST" duration-ms="936" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeAllBrowserWindows -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testOptions.TestRunner@63376bed]" started-at="2022-04-05T11:17:49 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-04-05T11:18:02 IST" duration-ms="12540" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Translate a piece of text from English to a particular language."]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Google Stuff]"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [false] but found [true]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [false] but found [true]
+at org.testng.Assert.fail(Assert.java:110)
+at org.testng.Assert.failNotEquals(Assert.java:1413)
+at org.testng.Assert.assertFalse(Assert.java:78)
+at org.testng.Assert.assertFalse(Assert.java:88)
+at stepDefinitions.StepDefinitions.successfully_translates_text_from_english_to_german(StepDefinitions.java:58)
+at ✽.Successfully translates "I am Subham. How are you, hope you are doing well. I am good. Thank you!" from English to "german"(file:///C:/Users/HNEOGI/OneDrive%20-%20Capgemini/Documents/L1%20Training/Sprint2/MavenCucumberDemo-main/src/test/java/features/GoogleStuff.feature:9)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="closeAllBrowserWindows()[pri:0, instance:testOptions.TestRunner@63376bed]" started-at="2022-04-05T11:18:02 IST" name="closeAllBrowserWindows" finished-at="2022-04-05T11:18:03 IST" duration-ms="1209" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeAllBrowserWindows -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testOptions.TestRunner@63376bed]" started-at="2022-04-05T11:18:03 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-04-05T11:18:09 IST" duration-ms="5747" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get the application landing page title of GitHub."]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Landing Page]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="closeAllBrowserWindows()[pri:0, instance:testOptions.TestRunner@63376bed]" started-at="2022-04-05T11:18:09 IST" name="closeAllBrowserWindows" finished-at="2022-04-05T11:18:10 IST" duration-ms="1082" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeAllBrowserWindows -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testOptions.TestRunner@63376bed]" started-at="2022-04-05T11:18:10 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-04-05T11:18:15 IST" duration-ms="4529" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get the application landing page title of Google."]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Landing Page]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="closeAllBrowserWindows()[pri:0, instance:testOptions.TestRunner@63376bed]" started-at="2022-04-05T11:18:15 IST" name="closeAllBrowserWindows" finished-at="2022-04-05T11:18:16 IST" duration-ms="995" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeAllBrowserWindows -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:testOptions.TestRunner@63376bed]" started-at="2022-04-05T11:18:16 IST" name="tearDownClass" finished-at="2022-04-05T11:18:16 IST" duration-ms="7" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- testOptions.TestRunner -->
+    </test> <!-- CucumberDemo2 Test 1 -->
+  </suite> <!-- CucumberDemo2 Suit 1 -->
+</testng-results>
