@@ -8,7 +8,7 @@ import java.time.*;
 import java.time.format.*;
 
 public class ScreenshotUtil {
-    public static String takeScreenshot() {
+    public String takeScreenshot() {
         TakesScreenshot ss = (TakesScreenshot) InitializeWebDriver.webDriver;
         File screenshot = ss.getScreenshotAs(OutputType.FILE);
         String filePath = getFilePath();
@@ -22,7 +22,7 @@ public class ScreenshotUtil {
         }
     }
 
-    private static String getFilePath() {
+    private String getFilePath() {
         final String fileSeparator = System.getProperty("file.separator");
         final String folderPath = System.getProperty("user.dir") + fileSeparator + "TestReport" + fileSeparator + "Screenshots";
         final String timeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy_HHmmss"));

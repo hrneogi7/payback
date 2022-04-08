@@ -1,4 +1,4 @@
-package testOptions;
+package testRunner;
 
 import com.aventstack.extentreports.*;
 import extentReports.*;
@@ -23,7 +23,8 @@ public class TestngListeners implements ITestListener {
     public void onTestFailure(ITestResult result) {
         System.out.println("SAAADDD :(");
         try {
-            String filePath = ScreenshotUtil.takeScreenshot();
+            ScreenshotUtil screenshotUtil = new ScreenshotUtil();
+            String filePath = screenshotUtil.takeScreenshot();
             ExtentTestManager.getTest().fail(
                     "Error Screenshot",
                     MediaEntityBuilder.createScreenCaptureFromPath(filePath).build()

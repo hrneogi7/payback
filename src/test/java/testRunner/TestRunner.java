@@ -1,4 +1,4 @@
-package testOptions;
+package testRunner;
 
 import io.cucumber.testng.*;
 import org.testng.annotations.*;
@@ -12,6 +12,7 @@ import utils.*;
 public class TestRunner extends AbstractTestNGCucumberTests {
     @AfterMethod
     public void closeAllBrowserWindows() {
-        InitializeWebDriver.closeAllBrowserWindows();
+        InitializeWebDriver initializeWebDriver = new InitializeWebDriver();
+        initializeWebDriver.closeAllBrowserWindows();
     }
 }
