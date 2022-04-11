@@ -5,8 +5,6 @@ import extentReports.*;
 import org.testng.*;
 import utils.*;
 
-import java.io.File;
-
 public class TestngListeners implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
@@ -15,30 +13,34 @@ public class TestngListeners implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        System.out.println("HOORRAAYYY! :D");
-        ExtentTestManager.getTest().log(Status.PASS, "Test passed");
+        System.out.println("SCENARIO PASSED :D");
+        ExtentTestManager.getTest().log(Status.INFO, "Scenario Name: " + InitializeWebDriver.getCurrentScenario());
+        ExtentTestManager.getTest().log(Status.PASS, "Scenario Passed");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        System.out.println("SAAADDD :(");
+        System.out.println("SCENARIO FAILED :(");
+        ExtentTestManager.getTest().log(Status.INFO, "Scenario Name: " + InitializeWebDriver.getCurrentScenario());
+        ExtentTestManager.getTest().log(Status.FAIL, "Scenario Failed");
         try {
-            ScreenshotUtil screenshotUtil = new ScreenshotUtil();
-            String filePath = screenshotUtil.takeScreenshot();
-            ExtentTestManager.getTest().fail(
-                    "Error Screenshot",
-                    MediaEntityBuilder.createScreenCaptureFromPath(filePath).build()
+            String ssPath = ScreenshotUtil.getLastScreenshotFilename();
+            ExtentTestManager.getTest().log(
+                    Status.FAIL,
+                    "Screenshot of the failed scenario",
+                    MediaEntityBuilder.createScreenCaptureFromPath(ssPath).build()
             );
-            System.out.println("Error Screenshot saved at " + filePath);
         } catch (Exception e) {
-            System.out.println("Screenshot not found!");
+            System.out.println(e.getMessage());
+            System.out.println("Error while taking/saving screenshot!");
         }
-        ExtentTestManager.getTest().log(Status.FAIL, "Test Failed");
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        ExtentTestManager.getTest().log(Status.SKIP, "Test Skipped");
+        System.out.println("SCENARIO SKIPPED :|");
+        ExtentTestManager.getTest().log(Status.INFO, "Scenario Name: " + InitializeWebDriver.getCurrentScenario());
+        ExtentTestManager.getTest().log(Status.SKIP, "Scenario Skipped");
     }
 
     @Override

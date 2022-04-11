@@ -8,8 +8,18 @@ import java.time.*;
 import java.time.format.*;
 
 public class ScreenshotUtil {
-    public String takeScreenshot() {
-        TakesScreenshot ss = (TakesScreenshot) InitializeWebDriver.webDriver;
+    private static final ThreadLocal<String> lastScreenshotFilename = new ThreadLocal<>();
+
+    public static void setLastScreenshotFilename(String lastScreenshotFilename) {
+        ScreenshotUtil.lastScreenshotFilename.set(lastScreenshotFilename);
+    }
+
+    public static String getLastScreenshotFilename() {
+        return lastScreenshotFilename.get();
+    }
+
+    public static String takeScreenshot(WebDriver webDriver) {
+        TakesScreenshot ss = (TakesScreenshot) webDriver;
         File screenshot = ss.getScreenshotAs(OutputType.FILE);
         String filePath = getFilePath();
         File destinationFile = new File(filePath);
@@ -22,10 +32,10 @@ public class ScreenshotUtil {
         }
     }
 
-    private String getFilePath() {
+    private static String getFilePath() {
         final String fileSeparator = System.getProperty("file.separator");
         final String folderPath = System.getProperty("user.dir") + fileSeparator + "TestReport" + fileSeparator + "Screenshots";
-        final String timeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy_HHmmss"));
+        final String timeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy_HHmmssn"));
         final String fileName = "TestSS_" + timeStamp + ".png";
         final String filePath = folderPath + fileSeparator + fileName;
 

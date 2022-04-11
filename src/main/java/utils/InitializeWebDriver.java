@@ -10,8 +10,17 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class InitializeWebDriver {
-    public static WebDriver webDriver;
+    private static final ThreadLocal<String> currentScenario = new ThreadLocal<>();
+    public WebDriver webDriver;
     public Properties properties;
+
+    public static void setCurrentScenario(String currentScenario) {
+        InitializeWebDriver.currentScenario.set(currentScenario);
+    }
+
+    public static String getCurrentScenario() {
+        return currentScenario.get();
+    }
 
     public void initializeWebDriver()throws IOException {
         properties= new Properties();

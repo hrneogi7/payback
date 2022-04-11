@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Payback Explore Suit 1">
+<suite name="Payback_explore" parallel="tests" thread-count="2">
     <listeners>
         <listener class-name="testRunner.TestngListeners"/>
     </listeners>
-    <test name="Payback Explore Test 1">
+    <test name="Payback_explore_HighMediumPriority">
         <classes>
             <class name="testRunner.TestRunner"/>
         </classes>
     </test>
+    <test name="Payback_explore_LowPriority">
+        <classes>
+            <class name="testRunner.TestRunner2"/>
+        </classes>
+    </test>
 </suite>
+
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">-->
+<!--<suite name="Payback Explore Suit 1">-->
+<!--    <listeners>-->
+<!--        <listener class-name="testRunner.TestngListeners"/>-->
+<!--    </listeners>-->
+<!--    <test name="Payback Explore Test 1">-->
+<!--        <classes>-->
+<!--            <class name="testRunner.TestRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--</suite>-->
+
+
+
