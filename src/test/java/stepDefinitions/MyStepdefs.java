@@ -241,7 +241,7 @@ public class MyStepdefs extends InitializeWebDriver {
         String link = excelReader.getCellData(row,1);
 
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        Assert.assertEquals(link,webDriver.getCurrentUrl());
+        Assert.assertEquals(webDriver.getCurrentUrl(),link);
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 }
