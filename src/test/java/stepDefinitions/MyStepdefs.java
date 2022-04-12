@@ -41,8 +41,8 @@ public class MyStepdefs extends InitializeWebDriver {
     }
 
     @Given("Users can navigate to payback using {string} link")
-    public void usersCanNavigateToPaybackUsingLink(String arg0) {
-        webDriver.get(arg0);
+    public void usersCanNavigateToPaybackUsingLink(String link) {
+        webDriver.get(link);
     }
     @Given("Users can hover over to {string} tab")
     public void usersCanHoverOverToTab(String arg0) {
@@ -80,24 +80,24 @@ public class MyStepdefs extends InitializeWebDriver {
 //    }
 
     @When("Click on Buy button of the brand {string}")
-    public void clickOnBuyButtonOfTheBrand(String arg0) {
+    public void clickOnBuyButtonOfTheBrand(String button) {
         PaybackPlus paybackPlus = new PaybackPlus(webDriver);
-        if(arg0.equals("1mg")){
+        if(button.equals("1mg")){
             paybackPlus.getButton2().click();
         }
-        if(arg0.equals("The man company")){
+        if(button.equals("The man company")){
             paybackPlus.getButton1().click();
         }
         webDriver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
     }
 
     @Then("the respective {string} webpage should open in new tab")
-    public void theRespectiveShouldOpenInNewTab(String arg0) {
+    public void theRespectiveShouldOpenInNewTab(String brandWebPage) {
         ArrayList<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
         webDriver.switchTo().window(tabs.get(1));
         String url = webDriver.getTitle();
         int x=0;
-        if(url.contains(arg0)){
+        if(url.contains(brandWebPage)){
             x=1;
         }
         Assert.assertEquals(x,1);
@@ -121,21 +121,21 @@ public class MyStepdefs extends InitializeWebDriver {
     }
 
     @Then("Fetch the page with link {string}")
-    public void fetchThePageWithLink(String arg0) {
+    public void fetchThePageWithLink(String webPage) {
 
         String url = webDriver.getCurrentUrl();
 
-        Assert.assertEquals(url,arg0);
+        Assert.assertEquals(webPage,url);
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @Given("User is logged in using {string} and {string}")
-    public void userIsLoggedInUsingAnd(String arg0, String arg1) {
+    public void userIsLoggedInUsingAnd(String phoneNumber, String pin) {
         webDriver.get("https://www.payback.in/login");
         Login login = new Login(webDriver);
 
-        login.getPhoneNumber().sendKeys(arg0);
-        login.getPin().sendKeys(arg1);
+        login.getPhoneNumber().sendKeys(phoneNumber);
+        login.getPin().sendKeys(pin);
 
         new WebDriverWait(webDriver, Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(login.getLogin_button())).click();
         login.getLogin_button().click();
@@ -151,37 +151,37 @@ public class MyStepdefs extends InitializeWebDriver {
 
 
     @When("User clicked on Details button of brand {string}")
-    public void userClickedOnDetailsButtonOfBrand(String arg0) {
+    public void userClickedOnDetailsButtonOfBrand(String details) {
         OurPartners ourPartners = new OurPartners(webDriver);
 
-        if(arg0.equals("American Express")){
+        if(details.equals("American Express")){
             ourPartners.getAmerican_express().click();
         }
-        if(arg0.equals("Thomas Cook")){
+        if(details.equals("Thomas Cook")){
             ourPartners.getThomas_cook().click();
         }
-        if(arg0.equals("Book my show")){
+        if(details.equals("Book my show")){
             ourPartners.getBookmyshow().click();
         }
         webDriver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
     }
 
     @Then("It fetch the partner brand page {string}")
-    public void itFetchThePartnerBrandPage(String arg0) {
+    public void itFetchThePartnerBrandPage(String partner_brand) {
         String url = webDriver.getCurrentUrl();
-        Assert.assertEquals(arg0,url);
+        Assert.assertEquals(partner_brand,url);
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
 
     @When("User clicked on Shop button under {string}")
-    public void userClickedOnShopButtonUnder(String arg0) {
+    public void userClickedOnShopButtonUnder(String shop) {
         OurPartners ourPartners = new OurPartners(webDriver);
 
-        if(arg0.equals("Amazon")){
+        if(shop.equals("Amazon")){
             ourPartners.getAmazon().click();
         }
-        if(arg0.equals("Dyson")){
+        if(shop.equals("Dyson")){
             ourPartners.getDyson().click();
         }
         webDriver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
@@ -201,9 +201,9 @@ public class MyStepdefs extends InitializeWebDriver {
     }
 
     @Then("User is taken to {string} Website")
-    public void userIsTakenToWebsite(String arg0) {
+    public void userIsTakenToWebsite(String webPage) {
         String url = webDriver.getCurrentUrl();
-        Assert.assertEquals(arg0,url);
+        Assert.assertEquals(url,webPage);
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
